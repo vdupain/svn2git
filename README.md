@@ -1,6 +1,5 @@
 # svn2git
-./mirror-svn-git.sh /tmp/svn2git/foo file:///home/vince/dev/svn2git/svnrepo/foo ~/dev/svn2git/foo.git $(pwd)/authors.txt
-
+./mirror-svn-git.sh /tmp/svn2git/foo file:///home/vince/dev/svn2git/svnrepo/foo ~/dev/svn2git/foo.git $(pwd)/authors.txt trunk branches tags
 
 ## thanks
 
