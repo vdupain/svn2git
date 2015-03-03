@@ -1,14 +1,14 @@
 #!/bin/bash
 
-set -e
+set -eu
 
 PROJECT_ROOT=$1
 SVN_REPO=$2
 GIT_REPO=$3
 AUTHORS_FILE=$4
-SVN_TRUNK=trunk
-SVN_BRANCHES=branches
-SVN_TAGS=tags
+SVN_TRUNK=${5:-"trunk"}
+SVN_BRANCHES=${6:-"branches"}
+SVN_TAGS=${7:-"tags"}
 
 SVN_LAYOUT="--trunk=$SVN_TRUNK --branches=$SVN_BRANCHES --tags=$SVN_TAGS"
 
@@ -23,7 +23,7 @@ fi
 cd "${PROJECT_ROOT}"
 
 echo "==="
-echo "Mirror the original Subversion repository to a svn clone repository: $SVN_CLONE"
+echo "Mirror the original Subversion repository to a svn clone repository: $SVN_CLONE with layout: $SVN_LAYOUT"
 echo "==="
 if [ ! -d "${SVN_CLONE}" ];
 then
