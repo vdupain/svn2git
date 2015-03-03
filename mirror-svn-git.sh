@@ -62,6 +62,14 @@ echo "==="
 git branch -m svn/trunk master
 
 echo "==="
+echo "Cleanup useless entries"
+echo "==="
+echo "rewrite the commit log messages: removing git svn-id strings"
+git filter-branch --msg-filter 'sed -e "/^git-svn-id:/d"' -- --all
+echo "prune empty commits"
+git filter-branch -f --tree-filter '' --tag-name-filter cat --prune-empty -- --all
+
+echo "==="
 echo "Remove bogus branches of the form \"name@REV\"."
 echo "==="
 git for-each-ref --format='%(refname)' refs/heads/svn | grep '@[0-9][0-9]*' | cut -d / -f 3- | while read ref; do
