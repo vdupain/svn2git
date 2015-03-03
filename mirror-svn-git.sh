@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -eu
+set -u # Don't use undefined variables
+set -e # Exit on error
 
 PROJECT_ROOT=$1
 SVN_REPO=$2
@@ -125,9 +126,7 @@ echo "==="
 echo "Final push to remote Git repo"
 echo "==="
 git remote add origin "${GIT_REPO}"
-git config branch.master.remote origin
-git config branch.master.merge refs/heads/master
-git push --force --tags --prune origin  master
-git push --all --prune
+git push origin --all --prune # pushes all refs under refs/heads
+git push origin --force --tags --prune # pushes all refs under refs/tags
 
 #rm -rf "${GIT_BARE}"
