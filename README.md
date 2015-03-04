@@ -5,4 +5,4 @@
 
 * [Kevin Menard's svn2git](https://github.com/nirvdrum/svn2git)
 * [Arnaud Heritier's script](https://gist.github.com/aheritier/8824148)
-
+* [Atlassian Blogs: Moving Confluence from Subversion to git](http://blogs.atlassian.com/2012/01/moving-confluence-from-subversion-to-git)
