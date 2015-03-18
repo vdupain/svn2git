@@ -5,9 +5,8 @@ mirror-svn-git.sh $PROJECT_ROOT $SVN_REPO $GIT_REPO $AUTHORS_FILE $SVN_TRUNK $SV
 ```
 
 ## Testing
-* Forking the repo: https://github.com/vdupain/svn2git-dogfooding
-* Creating new repo called svn2git-dogfooding in your GitHub repos
-* Checkout this repo with Subversion
+* Forking this repository for testing purposes: https://github.com/vdupain/svn2git-dogfooding
+* Checkout this forked repository with Subversion (https://help.github.com/articles/support-for-subversion-clients/)
 
 ```
 svn co --depth empty https://github.com/username/svn2git-dogfooding
