@@ -1,5 +1,36 @@
-# svn2git
-./mirror-svn-git.sh /tmp/svn2git/foo file:///home/vince/dev/svn2git/svnrepo/foo ~/dev/svn2git/foo.git $(pwd)/authors.txt trunk branches tags
+## svn2git
+
+```
+mirror-svn-git.sh $PROJECT_ROOT $SVN_REPO $GIT_REPO $AUTHORS_FILE $SVN_TRUNK $SVN_BRANCHES $SVN_TAGS
+```
+
+## Testing
+* Forking the repo: https://github.com/vdupain/svn2git-dogfooding
+* Creating new repo called svn2git-dogfooding in your GitHub repos
+* Checkout this repo with Subversion
+
+```
+svn co --depth empty https://github.com/username/svn2git-dogfooding
+```
+
+* Making commits to Subversion and other stuffs
+ 
+```
+cd svn2git-dogfooding
+svn up trunk
+svn up branches
+svn copy trunk branches/more_awesome
+svn commit -m 'Added more_awesome topic branch'
+echo "azerty" >> branches/more_awesome/myfile.txt
+svn commit -m "updating myfile.txt in more_awesome branch"
+```
+
+* Synch repo
+
+```
+mirror-svn-git.sh /tmp/svn2git/mirror https://github.com/username/svn2git-dogfooding git@github.com:username/svn2git-dogfooding.git $(pwd)/authors.txt
+```
+
 
 ## thanks
 
